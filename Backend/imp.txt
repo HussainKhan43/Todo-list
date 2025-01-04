@@ -1,0 +1,7 @@
+PORT = 4001
+
+MONGODB_URI =mongodb+srv://hussainkhan5march:lc1Iy0bZEBQAbcoU@cluster0.y6mek.mongodb.net/Todo-app
+
+JWT_SECRET_KEY =bgobu99anoMRHRtzS/mhicvKLyn9JlwL/VGtYSjg1Fg=
+
+FRONTEND_URL=http://localhost:5173
