@@ -1,12 +1,12 @@
 import express from "express";
 import mongoose from "mongoose";
-import dotenv from "dotenv";
+import "dotenv/config";
 import cors from "cors";
-import todoRoute from "../backend/routes/todo.route.js";
-import userRoute from "./backend/routes/user.route.js";
+import todoRoute from "./routes/todo.route.js";
+import userRoute from "./routes/user.route.js";
 import cookieParser from "cookie-parser";
+
 const app = express();
-dotenv.config();
 
 const PORT = process.env.PORT || 4002;
 const DB_URI = process.env.MONGODB_URI;

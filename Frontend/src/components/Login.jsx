@@ -24,7 +24,7 @@ function Login() {
           },
         }
       );
-      console.log(data);
+      console.log('after login ',data);
       toast.success(data.message || "User loggedin successfully");
       localStorage.setItem("jwt", data.token);
       navigateTo("/");
