@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+
 function Home() {
   const [todos, setTodos] = useState([]);
   const [error, setError] = useState(null);
@@ -13,12 +13,15 @@ function Home() {
     const fetchtodos = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:4001/todo/fetch", {
-          withCredentials: true,
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await axios.get(
+          "http://localhost:4001/todo/fetch",
+          {
+            withCredentials: true,
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         console.log(response.data.todos);
         setTodos(response.data.todos);
         setError(null);
@@ -74,9 +77,12 @@ function Home() {
 
   const todoDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:4001/todo/delete/${id}`, {
-        withCredentials: true,
-      });
+      await axios.delete(
+        `http://localhost:4001/todo/delete/${id}`,
+        {
+          withCredentials: true,
+        }
+      );
       setTodos(todos.filter((t) => t._id !== id));
     } catch (error) {
       setError("Failed to Delete Todo");

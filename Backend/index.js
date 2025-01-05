@@ -17,13 +17,20 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin: process.env.FRONTEND_URL || "http://localhost:3000", // Default for local dev
     credentials: true,
-    methods: "GET,POST,PUT,DELETE",
-    allowedHeaders: ["Content-Type", "Authorization"], // Add other headers you want to allow here.
+    methods: "GET,POST,PUT,DELETE,OPTIONS",
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "X-Requested-With",
+      "Accept",
+    ],
   })
 );
 
+// Handle preflight requests explicitly (optional)
+app.options("*", cors());
 
 // Database connection code
 try {
