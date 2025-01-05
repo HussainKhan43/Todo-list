@@ -12,7 +12,7 @@ function Login() {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "https://todo-list-backend-jy9h.onrender.com/user/login",
+        "http://localhost:4001/user/login",
         {
           email,
           password,
@@ -24,7 +24,7 @@ function Login() {
           },
         }
       );
-      console.log('after login ',data);
+      console.log(data);
       toast.success(data.message || "User loggedin successfully");
       localStorage.setItem("jwt", data.token);
       navigateTo("/");
